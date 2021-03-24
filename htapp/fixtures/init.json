@@ -1,0 +1,1003 @@
+[
+    {
+      "model": "htapp.language",
+      "pk": 1,
+      "fields": {
+        "name": "Русский",
+        "iso_code": "RU",
+        "locale": "ru_ru"
+      }
+    },
+    {
+      "model": "htapp.language",
+      "pk": 2,
+      "fields": {
+        "name": "English",
+        "iso_code": "EN",
+        "locale": "en_us"
+      }
+    },
+
+    {
+      "model": "htapp.currency",
+      "pk": 1,
+      "fields": {
+        "name": "Рубли",
+        "iso_code": "RUB",
+        "symbol": "₽"
+      }
+    },
+    {
+      "model": "htapp.currency",
+      "pk": 2,
+      "fields": {
+        "name": "Доллары",
+        "iso_code": "USD",
+        "symbol": "$"
+      }
+    },
+    {
+      "model": "htapp.currency",
+      "pk": 3,
+      "fields": {
+        "name": "Евро",
+        "iso_code": "EUR",
+        "symbol": "€"
+      }
+    },
+
+    {
+      "model": "htapp.country",
+      "pk": 1,
+      "fields": {
+        "name": "Россия",
+        "iso_code": "RU"
+      }
+    },
+    {
+      "model": "htapp.country",
+      "pk": 2,
+      "fields": {
+        "name": "ОАЭ",
+        "iso_code": "AE"
+      }
+    },
+    {
+      "model": "htapp.country",
+      "pk": 3,
+      "fields": {
+        "name": "Турция",
+        "iso_code": "TR"
+      }
+    },
+    {
+      "model": "htapp.country",
+      "pk": 4,
+      "fields": {
+        "name": "Египет",
+        "iso_code": "EG"
+      }
+    },
+    {
+      "model": "htapp.country",
+      "pk": 5,
+      "fields": {
+        "name": "Таиланд",
+        "iso_code": "TH"
+      }
+    },
+
+    {
+      "model": "htapp.hobby",
+      "pk": 1,
+      "fields": {
+        "name": "Йога",
+        "name_genitive": "Йоги",
+        "hobbyist": "Йоги",
+        "hobbyist_genitive": "Йогов",
+        "icon": "hobby/hobby-yoga.svg",
+        "is_active": true,
+        "slug": "yoga"
+      }
+    },
+    {
+      "model": "htapp.hobby",
+      "pk": 2,
+      "fields": {
+        "name": "Волейбол",
+        "name_genitive": "Волейбола",
+        "hobbyist": "Волейболисты",
+        "hobbyist_genitive": "Волейболистов",
+        "icon": "",
+        "is_active": true,
+        "slug": "voleyball"
+      }
+    },
+    {
+      "model": "htapp.hobby",
+      "pk": 3,
+      "fields": {
+        "name": "Рыбалка",
+        "name_genitive": "Рыбалки",
+        "hobbyist": "Рыбаки",
+        "hobbyist_genitive": "Рыбаков",
+        "icon": "",
+        "is_active": true,
+        "slug": "fishing"
+      }
+    },
+    {
+      "model": "htapp.hobby",
+      "pk": 4,
+      "fields": {
+        "name": "Открытая вода",
+        "name_genitive": "Открытой воды",
+        "hobbyist": "Пловцы",
+        "hobbyist_genitive": "Пловцов",
+        "icon": "",
+        "is_active": true,
+        "slug": "open_water"
+      }
+    },
+
+    {
+      "model": "htapp.feature",
+      "pk": 1,
+      "fields": {
+        "name": "Зал для йоги",
+        "hobby": 1,
+        "icon": "feature/feat-yoga.svg",
+        "order": 1
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 2,
+      "fields": {
+        "name": "Оборудование зала",
+        "hobby": 1,
+        "icon": "feature/feat-gym.svg",
+        "order": 2
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 3,
+      "fields": {
+        "name": "Стиль йоги",
+        "hobby": 1,
+        "icon": "feature/feat-pedestrian.svg",
+        "order": 3
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 4,
+      "fields": {
+        "name": "Уровень подготовки",
+        "hobby": 1,
+        "icon": "feature/feat-level.svg",
+        "order": 4
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 5,
+      "fields": {
+        "name": "Занятия",
+        "hobby": 1,
+        "icon": "feature/feat-study.svg",
+        "order": 5
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 6,
+      "fields": {
+        "name": "Открытая площадка",
+        "hobby": 1,
+        "icon": "feature/feat-sun.svg",
+        "order": 6
+      }
+    },
+    {
+      "model": "htapp.feature",
+      "pk": 7,
+      "fields": {
+        "name": "Питание",
+        "hobby": 1,
+        "icon": "feature/feat-apple.svg",
+        "order": 7
+      }
+    },
+
+    {
+      "model": "htapp.special",
+      "pk": 1,
+      "fields": {
+        "name": "Студии для йоги",
+        "hobby": 1,
+        "image": "special/special-studio.jpg",
+        "icon": "special/special-studio.svg",
+        "order": 1
+      }
+    },
+    {
+      "model": "htapp.special",
+      "pk": 2,
+      "fields": {
+        "name": "Веганское меню",
+        "hobby": 1,
+        "image": "special/special-vegan.jpg",
+        "icon": "special/special-vegan.svg",
+        "order": 2
+      }
+    },
+    {
+      "model": "htapp.special",
+      "pk": 3,
+      "fields": {
+        "name": "Меню для сыроедов",
+        "hobby": 1,
+        "image": "special/special-rawfood.jpg",
+        "icon": "special/special-rawfood.svg",
+        "order": 3
+      }
+    },
+    {
+      "model": "htapp.special",
+      "pk": 4,
+      "fields": {
+        "name": "Бассейн для йоги",
+        "hobby": 1,
+        "image": "special/special-basin.jpg",
+        "icon": "special/special-basin.svg",
+        "order": 4
+      }
+    },
+    {
+      "model": "htapp.special",
+      "pk": 5,
+      "fields": {
+        "name": "Открытая площадка для йоги",
+        "hobby": 1,
+        "image": "special/special-openarea.jpg",
+        "icon": "special/special-openarea.svg",
+        "order": 5
+      }
+    },
+    {
+      "model": "htapp.special",
+      "pk": 6,
+      "fields": {
+        "name": "Постоянные инструкторы",
+        "hobby": 1,
+        "image": "special/special-coach.jpg",
+        "icon": "special/special-coach.svg",
+        "order": 6
+      }
+    },
+
+    {
+      "model": "htapp.facility",
+      "pk": 1,
+      "fields": {
+        "name": "Бесплатный интернет",
+        "icon": "facility/facility-wifi.svg"
+      }
+    },
+    {
+      "model": "htapp.facility",
+      "pk": 2,
+      "fields": {
+        "name": "Трансфер",
+        "icon": "facility/facility-flight.svg"
+      }
+    },
+    {
+      "model": "htapp.facility",
+      "pk": 3,
+      "fields": {
+        "name": "Парковка",
+        "icon": "facility/facility-car.svg"
+      }
+    },
+    {
+      "model": "htapp.facility",
+      "pk": 4,
+      "fields": {
+        "name": "Бар или ресторан",
+        "icon": "facility/facility-restaurant.svg"
+      }
+    },
+    {
+      "model": "htapp.facility",
+      "pk": 5,
+      "fields": {
+        "name": "Бассейн",
+        "icon": "facility/facility-basin.svg"
+      }
+    },
+    {
+      "model": "htapp.facility",
+      "pk": 6,
+      "fields": {
+        "name": "Пляж рядом",
+        "icon": "facility/facility-beach.svg"
+      }
+    },
+
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 1,
+      "fields": {
+        "name": "- без категории -",
+        "icon": "hotelcategory/stars-0.svg"
+      }
+    },
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 2,
+      "fields": {
+        "name": "1*",
+        "icon": "hotelcategory/stars-1.svg"
+      }
+    },
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 3,
+      "fields": {
+        "name": "2*",
+        "icon": "hotelcategory/stars-2.svg"
+      }
+    },
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 4,
+      "fields": {
+        "name": "3*",
+        "icon": "hotelcategory/stars-3.svg"
+      }
+    },
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 5,
+      "fields": {
+        "name": "4*",
+        "icon": "hotelcategory/stars-4.svg"
+      }
+    },
+    {
+      "model": "htapp.hotelcategory",
+      "pk": 6,
+      "fields": {
+        "name": "5*",
+        "icon": "hotelcategory/stars-5.svg"
+      }
+    },
+
+    {
+      "model": "htapp.hoteltype",
+      "pk": 1,
+      "fields": {
+        "name": "Отели"
+      }
+    },
+    {
+      "model": "htapp.hoteltype",
+      "pk": 2,
+      "fields": {
+        "name": "Хостелы"
+      }
+    },
+    {
+      "model": "htapp.hoteltype",
+      "pk": 3,
+      "fields": {
+        "name": "Апартаменты"
+      }
+    },
+    {
+      "model": "htapp.hoteltype",
+      "pk": 4,
+      "fields": {
+        "name": "Гостевые дома"
+      }
+    },
+    {
+      "model": "htapp.hoteltype",
+      "pk": 5,
+      "fields": {
+        "name": "Коттеджи, виллы, бунгало"
+      }
+    },
+    {
+      "model": "htapp.hoteltype",
+      "pk": 6,
+      "fields": {
+        "name": "Кемпинги"
+      }
+    },
+    
+    {
+      "model": "htapp.hotel",
+      "pk": 1,
+      "fields": {
+        "name": "Green Flow",
+        "category": 5,
+        "country": 1,
+        "address": "Сочи, п. Эсто-Садок, ул. Сулимовка, д.9",
+        "coordinates": "43.66490631855447, 40.31488815594175",
+        "types": [1, 3],
+        "main_photo": "hotel/hotel-main-greenflow.jpg",
+        "description": "Первый отель на «Роза Хутор» с уникальной концепцией «Well-being», входит в ассоциацию Healing Hotels of the World. Всесезонный подогреваемый инфинити бассейн с видом на горы, Healing Center SPA, авторская кухня с сбалансированным питанием, программа оздоровления Miolife и 154 номера с видом на Кавказский хребет - здесь всё создано для истинного отдыха и полного погружения в атмосферу хилинга.",
+        "price": 4095,
+        "is_active": true,
+        "is_promotion": true,
+        "facilities": [1, 2, 4, 5, 6],
+        "specials": [1, 2, 3],
+        "booking_link": "https://www.booking.com/hotel/ru/quot-vysota-1170-quot.ru.html"
+      }
+    },
+    {
+      "model": "htapp.hotel",
+      "pk": 2,
+      "fields": {
+        "name": "EcoCamp",
+        "category": 1,
+        "country": 1,
+        "address": "Бахчисарай, ул. Фрунзе, 47",
+        "coordinates": "44.7481968719162, 33.849048511788126",
+        "types": [1, 6],
+        "main_photo": "hotel/hotel-main-ecocamp.jpg",
+        "description": "EcoCamp - это уникальное пространство площадью 8 гектаров на склоне одной из гор Бельбекской долины в Бахчисарайском районе. EcoCamp предназначен для духовного, физического, умственного развития и отдыха от городской суеты. Каждая деталь в EcoСamp продумана с целью восстановить силы и вдохновить на новые идеи: вкуснейшие авторские блюда в вегетарианском кафе, множество экскурсий, баня с эфирными маслами, вечерний кинотеатр, бассейн, залы для занятий и регулярные мастер-классы от известных экспертов.",
+        "price": 2250,
+        "is_active": true,
+        "is_promotion": true,
+        "facilities": [1, 2, 3, 4],
+        "specials": [3, 4, 5],
+        "booking_link": "https://www.booking.com/hotel/xc/ecocamp-krym.ru.html"
+      }
+    },
+    {
+      "model": "htapp.hotel",
+      "pk": 3,
+      "fields": {
+        "name": "Усадьба Круглое Озеро",
+        "category": 3,
+        "country": 1,
+        "address": "Краснодарский край, Абрау-Дюрсо, Садовое товарищество «Факел»",
+        "coordinates": "44.67793394349069, 37.59612170801181",
+        "types": [2, 4, 6],
+        "main_photo": "hotel/hotel-main-lake.jpg",
+        "description": "Центр притяжения для всех, кого привлекают духовные практики, особенно йога. Здесь, в реликтовом лесу созданы идеальные условия не только для занятий йогой, но и для всех тех, кто ценит комфортный и полноценный отдых в стиле \"ЗОЖ\". Отдых здесь -  это маленькая жизнь, прожив которую, вы обретете гармонию, поймете себя и осознаете, куда и как двигаться дальше.",
+        "price": 1350,
+        "is_active": true,
+        "is_promotion": true,
+        "facilities": [3, 4, 5, 6],
+        "specials": [1, 3, 5, 6],
+        "booking_link": "https://www.booking.com/hotel/ru/usadba-krugloe-ozero.ru.html"
+      }
+    },
+    {
+      "model": "htapp.hotel",
+      "pk": 4,
+      "fields": {
+        "name": "Medical Spa Hotel Rosa Springs",
+        "category": 5,
+        "country": 1,
+        "address": "Краснодарский край, Эстосадок, ул. Медовея, 4",
+        "coordinates": "43.66074927445186, 40.31907376953676",
+        "types": [5, 6],
+        "main_photo": "hotel/hotel-main-medical.jpg",
+        "description": "Rosa Springs 4* находится в одном из самых красивых мест Большого Сочи – в Горной Олимпийской деревне недалеко от Красной Поляны. Кавказские горы окружают отель со всех сторон, и панорамные виды открываются из каждого номера. Rosa Springs – уникальный горный проект. Это единственный отель в горах Сочи, который объединяет все курортные возможности «южной столицы».",
+        "price": 11150,
+        "is_active": true,
+        "is_promotion": true,
+        "facilities": [1, 3, 5, 6],
+        "specials": [2, 3, 4, 5],
+        "booking_link": "https://www.booking.com/hotel/ru/rosa-springs.ru.html"
+      }
+    },
+    {
+      "model": "htapp.hotel",
+      "pk": 5,
+      "fields": {
+        "name": "The Retreat Palm Dubai MGallery by Sofitel",
+        "category": 6,
+        "country": 2,
+        "address": "Пальма Джумейра",
+        "coordinates": "25.139239686061018, 55.14257397098417",
+        "types": [1, 3, 5],
+        "main_photo": "hotel/hotel-main-palm.jpg",
+        "description": "The Retreat Palm Dubai MGallery by Sofitel - первый в регионе 5-звездочный оздоровительный курорт и отличное место для спокойного отдыха, где можно отключиться от суеты повседневной жизни, восстановить связь с собой и вдохновиться на более здоровый и устойчивый образ жизни!Философия курортного отеля заключается в оздоровлении и персональной трансформации тела, разума и души.",
+        "price": 11842,
+        "is_active": true,
+        "is_promotion": false,
+        "facilities": [1, 2, 3, 4, 6],
+        "specials": [1, 2, 3, 5, 6],
+        "booking_link": "https://www.booking.com/hotel/ae/the-retreat-palm-dubai-mgallery-by-sofitel.ru.html"
+      }
+    },
+    
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 1,
+      "fields": {
+        "hotel": 1,
+        "hobby": 1,
+        "review": "Отель предлагает широкий спектр услуг как для активного, так и для релаксирующего отдыха. Здесь есть все для физического и эмоционального преображения гостей.",
+        "reviewer": 1,
+        "rating": 8.7
+      }
+    },
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 2,
+      "fields": {
+        "hotel": 2,
+        "hobby": 1,
+        "review": "На территории есть несколько беседок для отдыха, между деревьями натянуты гамаки и все это окружении яблочного сада.\nУдивительное чистейшее горное озеро в окрестностях EcoCamp, за счет известняка дно и берега озера имеют белый цвет, а цвет воды — изумрудный.\nБаня расположена в месте силы и направлена на раскрытие человека, внутреннее расслабление и успокоение.",
+        "reviewer": 1,
+        "rating": 4.0
+      }
+    },
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 3,
+      "fields": {
+        "hotel": 3,
+        "hobby": 1,
+        "review": "Вы будете жить в единении с природой, дышать морским воздухом, ходить по тропинкам реликтового леса, подниматься в горы, нежиться на побережье Черного моря.\nВас ждут занятия йогой под руководством опытных инструкторов, общение с единомышленниками, медитации, путешествия по чакральным маршрутам к местам силы.\nРетритный центр школы \"Абрау-Йога\" расположился в живописной горной долине, окруженной горами и первозданным реликтовым лесом, на побережье Чёрного моря между посёлками Южная Озерейка и Дюрсо. Занятия проводятся в оборудованном комфортабельном зале, расположенном в самом сердце Абрау-Дюрсо под названием Арт — Йога, светлая и уютная студия для занятий вместимостью около 30 человек.\nВ теплые дни занятия также проходят в горах, в «Доме йога», из которого отрывается фантастический вид на бескрайние морские просторы. Так же на территории Абрау-Дюрсо располагается несколько площадок для занятий йогой, проведения ретритов и фестивалей.",
+        "reviewer": 1,
+        "rating": 6.4
+      }
+    },
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 4,
+      "fields": {
+        "hotel": 4,
+        "hobby": 1,
+        "review": "Сочетание уникального климата и лучших медицинских технологий, лечение целебными водами региона и забота о каждом госте — именно в такой концепции работает medical spa отель ROSA SPRINGS 4* круглогодичного горного курорта Роза Хутор.",
+        "reviewer": 1,
+        "rating": 7.1
+      }
+    },
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 5,
+      "fields": {
+        "hotel": 5,
+        "hobby": 1,
+        "review": "Стильный отель с интересной концепцией здорового образа жизни. В дополнение к философии оздоровления отеля, рестораны предлагают широкий выбор здоровых блюд, приготовленных из местных здоровых продуктов, таких как верблюжье молоко и других тщательно отобранных местных органических ингредиентов, свежеприготовленных местными фермами-партнерами, а также зелень из собственного травяного сада отеля. Отличный массаж в спа.",
+        "reviewer": 1,
+        "rating": 9.3
+      }
+    },
+    {
+      "model": "htapp.hotelhobby",
+      "pk": 6,
+      "fields": {
+        "hotel": 2,
+        "hobby": 2,
+        "review": "",
+        "reviewer": 1,
+        "rating": 6.7
+      }
+    },
+    
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 1,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-01.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 2,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-02.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 3,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-03.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 4,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-04.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 5,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-05.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 6,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-06.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 7,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-07.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 8,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-08.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 9,
+      "fields": {
+        "hotel": 1,
+        "image": "hotel/hotel-photo-greenflow-09.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 10,
+      "fields": {
+        "hotel": 2,
+        "image": "hotel/hotel-photo-ecocamp-01.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 11,
+      "fields": {
+        "hotel": 2,
+        "image": "hotel/hotel-photo-ecocamp-02.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 12,
+      "fields": {
+        "hotel": 2,
+        "image": "hotel/hotel-photo-ecocamp-03.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 13,
+      "fields": {
+        "hotel": 2,
+        "image": "hotel/hotel-photo-ecocamp-04.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 14,
+      "fields": {
+        "hotel": 2,
+        "image": "hotel/hotel-photo-ecocamp-05.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 15,
+      "fields": {
+        "hotel": 3,
+        "image": "hotel/hotel-photo-lake-01.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 16,
+      "fields": {
+        "hotel": 3,
+        "image": "hotel/hotel-photo-lake-02.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 17,
+      "fields": {
+        "hotel": 3,
+        "image": "hotel/hotel-photo-lake-03.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 18,
+      "fields": {
+        "hotel": 4,
+        "image": "hotel/hotel-photo-medical-01.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 19,
+      "fields": {
+        "hotel": 4,
+        "image": "hotel/hotel-photo-medical-02.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 20,
+      "fields": {
+        "hotel": 4,
+        "image": "hotel/hotel-photo-medical-03.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 21,
+      "fields": {
+        "hotel": 4,
+        "image": "hotel/hotel-photo-medical-04.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 22,
+      "fields": {
+        "hotel": 4,
+        "image": "hotel/hotel-photo-medical-05.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 23,
+      "fields": {
+        "hotel": 5,
+        "image": "hotel/hotel-photo-palm-01.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 24,
+      "fields": {
+        "hotel": 5,
+        "image": "hotel/hotel-photo-palm-02.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 25,
+      "fields": {
+        "hotel": 5,
+        "image": "hotel/hotel-photo-palm-03.jpg"
+      }
+    },
+    {
+      "model": "htapp.hotelphoto",
+      "pk": 26,
+      "fields": {
+        "hotel": 5,
+        "image": "hotel/hotel-photo-palm-04.jpg"
+      }
+    },
+    
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 1,
+      "fields": {
+        "hotel": 1,
+        "feature": 1,
+        "description": "Отель «Green Flow» для своих гостей предлагает тренировки в комфортном спортивном зале 65 кв.м. с учетом индивидуальных особенностей занимающихся."
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 2,
+      "fields": {
+        "hotel": 1,
+        "feature": 5,
+        "description": "По специально разработанным программам специалисты проводят занятия в группе и индивидуально.\nИндивидуальные занятия можно посетить с 12:00 до 16:00 по предварительной записи.\n60 мин/90 мин/120 мин - 1,500₽ / 2,000₽ / 5,000₽"
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 3,
+      "fields": {
+        "hotel": 1,
+        "feature": 2,
+        "description": "В зале имеется необходимое оборудование позволяющее сделать тренировку максимально эффективной: коврики, пледы и т.д."
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 4,
+      "fields": {
+        "hotel": 2,
+        "feature": 7,
+        "description": "Экологически чистые продукты из фермерских хозяйств долины, изготовленные в соответствии с принципами Аюрведы и макробиотики."
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 5,
+      "fields": {
+        "hotel": 2,
+        "feature": 1,
+        "description": "ЗАЛ СФЕРА\nЗал на 50 человек слушателей и 25 человек активно занимающихся йогой. Оболочка сферы при необходимости открывается или закрывается.\nБОЛЬШОЙ ЗАЛ\nЗал на 100 человек слушателей и 80 человек занимающихся йогой. При необходимости зал закрывается со всех сторон шторами."
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 6,
+      "fields": {
+        "hotel": 2,
+        "feature": 6,
+        "description": "РАССВЕТНАЯ ПЛОЩАДКА\nПлощадка с видом на горы, на которой принято встречать рассветы, заниматься йогой и просто любоваться видом."
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 7,
+      "fields": {
+        "hotel": 3,
+        "feature": 1,
+        "description": "Пространство, полностью оборудованное всем необходимым для практик - вместимостью до 20 человек.\nРасполагается на территории усадьбы \"Круглое озеро\". Предоставляется для занятий группам (ретриты или йога-туры) при бронировании проживания в \"Эколоджии\" или \"Круглое озеро\""
+      }
+    },
+    {
+      "model": "htapp.hotelfeature",
+      "pk": 8,
+      "fields": {
+        "hotel": 4,
+        "feature": 5,
+        "description": "Стоимость группового занятия йогой (от 3х до 10 чел.) составляет 700 руб. с человека (длительность - 60 минут); стоимость индивидуального занятия составляет 1700 руб. (длительность - 60 минут) / 2000 руб. (длительность - 90 минут)."
+      }
+    },
+    
+    {
+      "model": "htapp.hotelreview",
+      "pk": 1,
+      "fields": {
+        "hotel": 1,
+        "hobby": 1,
+        "reviewer_name": "Анна Корнеева",
+        "reviewer_country": 1,
+        "text": "Отель Green flow hotel - это особая атмосфера спокойствия, умиротворения, это место, куда всегда хочется вернуться! Ощущается высокий уровень окружения. Особенно впечатляет открытый теплый бассейн на уровне 1170 метров над уровнем моря с живописным видом на склоны Северокавказских гор.",
+        "rate": 6
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 2,
+      "fields": {
+        "hotel": 1,
+        "hobby": 1,
+        "reviewer_name": "Екатерина Кочеткова",
+        "reviewer_country": 1,
+        "text": "Очень понравились групповые занятия. Замечательный тренер по хатха-йоге. Ни разу не пожалели, что взяли номер с балконом и видом на горы. Оно того стоит. Горячий бассейн в горах замечательный шведский стол-заграничный уровень",
+        "rate": 3
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 3,
+      "fields": {
+        "hotel": 1,
+        "hobby": 1,
+        "reviewer_name": "Виктория Николаева",
+        "reviewer_country": 1,
+        "text": "Отель очень хороший, особенно приятно было посещать ежедневные бесплатные программы по спортивной ходьбе, йоге, медитации. Я действительно отдохнула от работы, от суеты, насладилась красивыми пейзажами, чистым воздухом, спа-программами и вкуснейшей едой. На следующий год обязательно приедем всей семьей! Я действительно горжусь, что в России есть такие места силы, куда хочется вернуться вновь!",
+        "rate": 10
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 4,
+      "fields": {
+        "hotel": 2,
+        "hobby": 1,
+        "reviewer_name": "Эвелина Фадеева",
+        "reviewer_country": 1,
+        "text": "Eco Camp — восхитительное место для тех, кто хочет вырваться из городской суеты и заняться собою. Здесь есть все условия для этого: ежедневные практики, лекции, семинары, вегетарианское меню, рассветная и закатная площадки, места силы в округе кемпа и еще много-много всего...",
+        "rate": 9
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 5,
+      "fields": {
+        "hotel": 2,
+        "hobby": 1,
+        "reviewer_name": "Владимир Баженов",
+        "reviewer_country": 1,
+        "text": "Самый лучший отдых в моей жизни! Находимся под большим впечатлением, шикарное место с сумасшедшей энергетикой. Только здесь удалось расслабиться и отвлечься от проблем. Обязательно приедем еще и будем рекомендовать друзьям!",
+        "rate": 8
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 6,
+      "fields": {
+        "hotel": 3,
+        "hobby": 1,
+        "reviewer_name": "Владислав Казаков",
+        "reviewer_country": 1,
+        "text": "Домики находятся среди леса, выглядят аккуратно, внутри все очень чисто. Такое тихое место, чтобы побыть без интернета на природе. Вечером пришли два енота, ели печенье прямо с рук. Это сняло все прочие неприятные впечатления после заселения, еноты - душки.",
+        "rate": 4
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 7,
+      "fields": {
+        "hotel": 4,
+        "hobby": 1,
+        "reviewer_name": "Лев Волков",
+        "reviewer_country": 1,
+        "text": "Мы ездили с девочками в этот отель в апреле и были в полном восторге, начиная с персонала на ресепшене и заканчивая горничными.\nНомера - большие. Вид из окон - сами понимаете какой. У отеля есть свой аромат в прямом смысле, здесь знают, что такое аромамаркетинг. В коридорах - кулеры с водой. Внизу - бювет с минеральной водой, которую можно пить в любое время и бесплатно. Хорошая спа-зона, и спортивные залы. Мы каждый день занимались йогой, ходили в сауны и бассейн.\nЗавтраки - чудесные, только каш - Видов 5. Многие блюда подписаны «диета 5» и т.д, То есть есть возможность соблюдать ограничения\nИз минусов: в нашем корпусе не работало отопление и эту проблему невозможно было решить.",
+        "rate": 6
+      }
+    },
+    {
+      "model": "htapp.hotelreview",
+      "pk": 8,
+      "fields": {
+        "hotel": 5,
+        "hobby": 1,
+        "reviewer_name": "Асия Хохлова",
+        "reviewer_country": 1,
+        "text": "Прекрасный комфортный отель с качественным вкусным здоровым питанием и напитками. Небольшой по сравнению с находящимися поблизости муравейниками и в момент нашего пребывания неполностью загруженный. Поэтому хватало лежаков и бассейна (теплого! 29 град), не было толкучки в ресторане. Все расслаблено и в релаксе. Отличный спа комплекс - девушки из Индонезии с професссиональными навыками массажа. Мне очень помогла со спиной мастер по имени AYU - прошу менеджмент ей личную благородность передать. Отель безалкогольный и некурящий. Поэтому не было пьяных гульбанящих ночью компаний и запаха курева ни на пляже, ни на балконах, ни в ресторане на улице. ЗОЖ по полной.",
+        "rate": 7
+      }
+    },
+
+    {
+      "model": "htapp.userinfo",
+      "pk": 1,
+      "fields": {
+        "user": 1,
+        "post": "Руководитель отдела по оценке отелей",
+        "hobby": 1,
+        "language": 1,
+        "currency": 1
+      }
+    },
+
+    {
+      "model": "htapp.mainslidebanner",
+      "pk": 1,
+      "fields": {
+        "title": "Отдыхай там, где тебя понимают",
+        "text": "Откройте для себя лучшие отели для вашего хобби, специально подобранные для вас по всему миру",
+        "image": "slider/slider-01.jpg",
+        "order": 1,
+        "is_active": 1
+      }
+    },
+    {
+      "model": "htapp.mainslidebanner",
+      "pk": 2,
+      "fields": {
+        "title": "Отдыхай там, где тебя понимают",
+        "text": "Откройте для себя лучшие отели для вашего хобби, специально подобранные для вас по всему миру",
+        "image": "slider/slider-01.jpg",
+        "order": 2,
+        "is_active": 1
+      }
+    }
+  ]

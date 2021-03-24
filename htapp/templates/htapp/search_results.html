@@ -1,0 +1,55 @@
+{% load static %}
+{% load htapp_extras %}
+
+<div class="b-results__hotels">
+    {% for hotel in hotels %}
+    <a href="{% url 'hotel' hotel.hotelhobbies.all.first.hobby.slug hotel.pk %}" class="b-search-hotel">
+        <div class="b-search-hotel__image" style="background-image: url('{% get_media_prefix %}{{ hotel.main_photo }}');">
+        </div>
+        <div class="b-search-hotel__info">
+            <div class="b-search-hotel__details">
+                <div class="b-search-hotel__category" style="background-image: url('{% get_media_prefix %}{{ hotel.category.icon }}');"></div>
+                <h4 class="b-search-hotel__name">{{ hotel.name }}</h4>
+                <div class="b-search-hotel__address">{{ hotel.address }}</div>
+                <ul class="b-search-hotel__specials">
+                    {% for special in hotel.specials.all|slice:":3" %}
+                    <li class="b-search-hotel__special"><img src="{% get_media_prefix %}{{ special.icon }}" /><span>{{ special.name }}</span></li>
+                    {% endfor %}
+                </ul>
+                <div class="b-search-hotel__description">{{ hotel.reviews.all.first.text|truncatechars:120 }}</div>
+                <div class="b-search-hotel__score b-search-hotel__score_mobile">
+                    <div class="b-search-hotel__rating">{{ hotel.hotelhobbies.all.first.rating|format_decimal:1 }}</div>
+                    <div class="b-search-hotel__reviews">{{ hotel.reviews.all|length|pluralize_number:"отзыв,отзыва,отзывов" }}</div>
+                </div>
+            </div>
+            <div class="b-search-hotel__additional">
+                <div class="b-search-hotel__score b-search-hotel__score_desktop">
+                    <div class="b-search-hotel__rating">{{ hotel.hotelhobbies.all.first.rating|format_decimal:1 }}</div>
+                    <div class="b-search-hotel__reviews">{{ hotel.reviews.all|length|pluralize_number:"отзыв,отзыва,отзывов" }}</div>
+                </div>
+                <div class="b-search-hotel__price-wrapper">
+                    <div class="b-search-hotel__price">{{ hotel.price|format_decimal:0 }} ₽</div>
+                    <div class="b-search-hotel__badge">Узнать больше</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+    <p class="b-results__empty">
+        К сожалению, мы не нашли подходящих отелей. <br/>
+        Попробуйте изменить условия поиска.
+    </p>
+    {% endfor %}
+</div>
+<!--
+<div class="b-paginator">
+    <a href="#" class="b-paginator__page b-paginator__page_first"></a>
+    <a href="#" class="b-paginator__page">1</a>
+    <a href="#" class="b-paginator__page">2</a>
+    <a href="#" class="b-paginator__page b-paginator__page_active">3</a>
+    <a href="#" class="b-paginator__page">4</a>
+    <a href="#" class="b-paginator__page">5</a>
+    <a href="#" class="b-paginator__page b-paginator__page_last"></a>
+</div>
+-->
+{{ results_data|json_script:'resultsData' }}

@@ -1,0 +1,103 @@
+{% extends 'layout/main.html' %}
+
+{% load static %}
+{% load htapp_extras %}
+
+{% block scripts %}<script src="{% static 'htapp/js/search.js' %}"></script>{% endblock %}
+
+{% block title %}Hobby Travel - Главная страница{% endblock %}
+
+{% block content %}
+        <div class="b-body__wrapper b-search__wrapper">
+            <div class="b-body__content b-search__content">
+                <div class="b-filters">
+                    <form id="filtersForm" action="{% url 'search-results' hobby.slug %}" method="GET">
+                        <button class="b-filters__close-button"></button>
+                        <h2 class="b-filters__title">Фильтры</h2>
+                        <input type="hidden" name="country" value="{{ country.pk }}"/>
+                        <div class="b-filter b-filter_date">
+                            <input type="text" placeholder="Дата заезда" class="b-filter_datepicker" />
+                        </div>
+                        <div class="b-filter b-filter_date">
+                            <input type="text" placeholder="Дата выезда" class="b-filter_datepicker" />
+                        </div>
+                        <div class="b-filter">
+                            <h3 class="b-filter__title">Специально для йоги</h3>
+                            <div class="b-filter__list">
+                                {% for special in specials %}
+                                <label><input type="checkbox" name="specials[]" value="{{ special.pk }}" class="filled-in b-filter__checkbox" /><span>{{ special.name }}</span></label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="b-filter">
+                            <h3 class="b-filter__title">Удобства</h3>
+                            <div class="b-filter__list">
+                                {% for facility in facilities %}
+                                <label><input type="checkbox" name="facilities[]" value="{{ facility.pk }}" class="filled-in b-filter__checkbox" /><span>{{ facility.name }}</span></label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="b-filter">
+                            <h3 class="b-filter__title">Тип размещения</h3>
+                            <div class="b-filter__list">
+                                {% for hotel_type in hotel_types %}
+                                <label><input type="checkbox" name="hotel_types[]" value="{{ hotel_type.pk }}" class="filled-in b-filter__checkbox" /><span>{{ hotel_type.name }}</span></label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="b-filter">
+                            <h3 class="b-filter__title">Количество звезд</h3>
+                            <div class="b-filter__list">
+                                {% for hotel_category in hotel_categories %}
+                                <label>
+                                    <input type="checkbox" name="hotel_categories[]" value="{{ hotel_category.pk }}" class="filled-in b-filter__checkbox" />
+                                    <span><img src="{% get_media_prefix %}{{ hotel_category.icon }}" alt="{{ hotel_category.name }}" /></span>
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="b-filter b-filter_range">
+                            <h3 class="b-filter__title">Цена</h3>
+                            <div class="b-filter__range-values"><span class="b-filter__range-from-value"></span> - <span class="b-filter__range-to-value"></span></div>
+                            <div class="b-filter__range-input" data-min-value="{{ hotels_aggr.min_price }}" data-max-value="{{ hotels_aggr.max_price }}"></div>
+                            <input type="hidden" name="pricefrom" class="b-filter__input-from" id="filerPriceFrom" />
+                            <input type="hidden" name="priceto" class="b-filter__input-to" id="filerPriceTo" />
+                        </div>
+                    </form>
+                </div>
+                <div class="b-results">
+                    <h1 class="b-results__title">
+                        {{ country.name }}: 
+                        найдено <span class="b-results__count">{{ hotels_aggr.count|pluralize_number:'отель,отеля,отелей' }}<span> 
+                        для {{ hobby.name_genitive|lower }}
+                    </h1>
+                    <div class="b-results__controls">
+                        <button type="button" class="b-results__ctr-button b-results__ctr-button_filer">Фильтр (5)</button>
+                        <button type="button" class="b-results__ctr-button b-results__ctr-button_sort">Сортировка</button>
+                        <button type="button" class="b-results__ctr-button b-results__ctr-button_map">На карте</button>
+                    </div>
+                    <div class="b-results__preloader">
+                        <div class="preloader-wrapper active">
+                            <div class="spinner-layer">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-results__list">
+                    </div>
+                    <div class="b-map b-map_hidden">
+                        <button type="button" class="b-map__close-button"></button>
+                        <div class="b-map__content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

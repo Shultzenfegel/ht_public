@@ -1,0 +1,142 @@
+{% extends 'layout/main.html' %}
+
+{% load static %}
+{% load htapp_extras %}
+
+{% block title %}Hobby Travel - Главная страница{% endblock %}
+
+{% block content %}
+        <div class="b-body__wrapper b-main-slider">
+            <div class="b-main-slider__slides">
+                {% for slide in slides %}
+                <div class="b-main-slider__slide {% if forloop.first %}b-main-slider__slide_active{% endif %}" style="background-image: url('{% get_media_prefix %}{{ slide.image }}');">
+                    <h1 class="b-main-slider__title">{{ slide.title }}</h1>
+                    <p class="b-main-slider__text">{{ slide.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="b-main-slider__marks">
+                {% for slide in slides %}
+                <div class="b-main-slider__mark {% if forloop.first %}b-main-slider__mark_active{% endif %}"></div>
+                {% endfor %}
+            </div>
+            <form action="/" class="b-main-search">
+                <div class="b-main-select b-main-form__field_hobby">
+                    <div class="b-main-select__button b-main-select__button_hobby">
+                        Выбрать хобби
+                    </div>
+                    <input type="hidden" id="hobby" name="hobby" class="b-main-select__input" />
+                    <ul class="b-main-select__options">
+                        {% for hobby in hobbies %}
+                        <li class="b-main-select__option" data-value="{{ hobby.slug }}">{{ hobby.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="b-main-select b-main-form__field_geo">
+                    <div class="b-main-select__button b-main-select__button_hobby">
+                        Куда
+                    </div>
+                    <input type="hidden" id="country" name="country" class="b-main-select__input" />
+                    <ul class="b-main-select__options">
+                        {% for country in countries %}
+                        <li class="b-main-select__option" data-value="{{ country.pk }}">{{ country.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <button type="button" class="b-main-button">Подобрать</button>
+            </form>
+        </div>
+        <div class="b-body__wrapper b-main_odd">
+            <div class="b-body__content b-main__content">
+                <h2 class="b-main-header-2">Популярные <span class="b-text_accent">отели</span></h2>
+                <div class="b-main-hotels">
+                    {% for hotel in hotels %}
+                    <a href="{% url 'hotel' hotel.hotelhobbies.all.first.hobby.slug hotel.pk %}" class="b-main-hotel">
+                        <div class="b-main-hotel__image" style="background-image: url('{% get_media_prefix %}{{ hotel.main_photo }}');">
+                            <div class="b-main-hotel__hobby">
+                                {% for hotelhobby in hotel.hotelhobbies.all %}
+                                    {{ hotelhobby.hobby.name }}{% if forloop.last is not True %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="b-main-hotel__category" style="background-image: url('{% get_media_prefix %}{{ hotel.category.icon }}');"></div>
+                            <div class="b-main-hotel__rating">{{ hotel.hotelhobbies.all.first.rating|format_decimal:1 }}</div>
+                            <div class="b-main-hotel__reviews">{{ hotel.reviews.all|length|pluralize_number:"отзыв,отзыва,отзывов" }}</div>
+                        </div>
+                        <div class="b-main-hotel__details">
+                            <div class="b-main-hotel__address">{{ hotel.address }}</div>
+                            <h4 class="b-main-hotel__name">{{ hotel.name }}</h4>
+                            <ul class="b-main-hotel__specials">
+                                {% for special in hotel.specials.all|slice:":3" %}
+                                <li class="b-main-hotel__special"><img src="{% get_media_prefix %}{{ special.icon }}" /><span>{{ special.name }}</span></li>
+                                {% endfor %}
+                            </ul>
+                            <div class="b-main-hotel__price">{{ hotel.price|format_decimal:0 }} ₽</div>
+                            <div class="b-main-hotel__badge">Узнать больше</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="b-body__wrapper b-main_even">
+            <div class="b-body__content b-main__content">
+                <h2 class="b-main-header-2">Давайте <span class="b-text_accent">знакомиться!</span></h2>
+                <div class="b-main-info">
+                    <img src="{% static 'htapp/img/main/main-about.jpg' %}" alt="" class="b-main-info__image">
+                    <div class="b-main-info__content">
+                        <h3 class="b-main-info__title">О нас</h3>
+                        <p class="b-main-info__text">Мы являемся новым сервисом по бронированию отелей исходя из ваших
+                            увлечений и хобби. Больше вам не придется тратить время на поиск отеля, мы собрали весь наш
+                            опыт и опыт экспертов по путешествиям</p>
+                        <a href="#" class="b-main-info__link">Узнать больше</a>
+                    </div>
+                </div>
+                <div class="b-main-info">
+                    <img src="{% static 'htapp/img/main/main-partners.jpg' %}" alt="" class="b-main-info__image">
+                    <div class="b-main-info__content">
+                        <h3 class="b-main-info__title">Работать с нами</h3>
+                        <p class="b-main-info__text">У вас подходящий и привлекательный для наших пользователей объект
+                            размещения? Тогда мы хотели бы, чтобы он был на нашем сайте! Начните продвигать его уже
+                            сегодня. Узнайте, что вы можете получить от нас.</p>
+                        <a href="#" class="b-main-info__link">Подключайтесь к нам</a>
+                    </div>
+                </div>
+                <div class="b-main-info">
+                    <img src="{% static 'htapp/img/main/main-contact.jpg' %}" alt="" class="b-main-info__image">
+                    <div class="b-main-info__content">
+                        <h3 class="b-main-info__title">Связаться с нами</h3>
+                        <p class="b-main-info__text">Будем на связи. Полагаем, что поначалу у вас могут возникнуть
+                            вопросы. Мы всегда рады ответить. Мы доступны для вас по электронной почте.</p>
+                        <a href="#" class="b-main-info__link">info@hobby.travel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="b-body__wrapper b-main_odd">
+            <div class="b-body__content b-main__content">
+                <h2 class="b-main-header-2">Время перезагрузиться с <span class="b-text_accent">Hobby Travel</span></h2>
+                <p class="b-main-reboot__subheader">Проводите время и отдыхайте там, где вас понимают. Откройте для себя
+                    лучшие отели для вашего хобби, специально подобранные для вас по всему миру.</p>
+                <div class="b-main-reboot__content">
+                    <img src="{% static 'htapp/img/main/reboot.png' %}" alt="" class="b-main-reboot__image">
+                    <ul class="b-main-reboot__list">
+                        <li class="b-main-reboot__item">
+                            <img src="{% static 'htapp/img/main/reboot-01.svg' %}" alt="" class="b-main-reboot__icon">
+                            Мы предлагаем только тщательно подобранные отели, хостелы, виллы и другие объекты размещения
+                            по всему миру исходя из ваших интересов.
+                        </li>
+                        <li class="b-main-reboot__item">
+                            <img src="{% static 'htapp/img/main/reboot-02.svg' %}" alt="" class="b-main-reboot__icon">
+                            Мы собираем и публикуем достоверные отзывы путешественников, имеющих непосредственное
+                            отношение к вашему увлечению или хобби. Таким способом вы получаете ещё больше информации об
+                            отеле.
+                        </li>
+                        <li class="b-main-reboot__item">
+                            <img src="{% static 'htapp/img/main/reboot-03.svg' %}" alt="" class="b-main-reboot__icon">
+                            Мы работаем с проверенными партнерами и сами инспектируем отели и другие объекты размещения.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}

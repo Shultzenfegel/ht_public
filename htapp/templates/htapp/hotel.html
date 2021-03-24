@@ -1,0 +1,169 @@
+{% extends 'layout/main.html' %}
+
+{% load static %}
+{% load htapp_extras %}
+
+{% block scripts %}<script src="{% static 'htapp/js/hotel.js' %}"></script>{% endblock %}
+
+{% block title %}Hobby Travel - Главная страница{% endblock %}
+
+{% block content %}
+        <div class="b-body__wrapper b-hotel__actions-wrapper">
+            <div class="b-body__content b-hotel__actions-content">
+                <div class="b-hotel__actions">
+                    <a href="#" class="b-link_request">Отправить запрос</a>
+                    <a href="{{ hotel.booking_link }}" class="b-link_book">Забронировать</a>
+                </div>
+            </div>
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-body__content b-hotel__details">
+                <div class="b-hotel__main">
+                    <div class="b-hotel__title">
+                        <h1 class="b-hotel__name">{{ hotel.name }}</h1>
+                        <img src="{% get_media_prefix %}{{ hotel.category.icon }}" alt="" class="b-hotel__category" />
+                    </div>
+                    <div class="b-hotel__address">{{ hotel.address }}</div>
+                    <a href="#" class="b-hotel__to-map">Посмотреть отель на карте</a>
+                    <div class="b-hotel__photos">
+                        <div class="b-photos">
+                            <div class="b-photos__main-picture" style="background-image: url('{% get_media_prefix %}{{ hotel.main_photo }}');">
+                                <ul class="b-photos__paginator">
+                                    <li class="b-photos__paginator-item b-photos__paginator-item_active"></li>
+                                    {% for photo in photos %}
+                                    <li class="b-photos__paginator-item"></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="b-photos__previews">
+                                <div class="b-photos__previews-items">
+                                    <img src="{% get_media_prefix %}{{ hotel.main_photo }}" alt="" class="b-photos__preview">
+                                    {% for photo in photos %}
+                                    <img src="{% get_media_prefix %}{{ photo.image }}" alt="" class="b-photos__preview">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-hotel__price"><span class="b-hotel__price_amount">от {{ hotel.price|format_decimal:0 }} ₽</span> за ночь</div>
+                        <a href="#" class="b-hotel__like-button"></a>
+                        <div class="b-hotel__users">Сейчас 1 пользователь просматривает этот отель</div>
+                        <div class="b-hotel__share">
+                            <a href="" class="b-hotel__share-link b-hotel__share-link_ig"></a>
+                            <a href="" class="b-hotel__share-link b-hotel__share-link_vk"></a>
+                            <a href="" class="b-hotel__share-link b-hotel__share-link_fb"></a>
+                            <span>Поделитесь отелем с друзьями</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-hotel__score">
+                    <div class="b-rating">
+                        <div class="b-rating__caption">
+                            <div class="b-rating__hobby"><img src="{% get_media_prefix %}{{ hobby.icon }}" alt="" class="b-rating__hobby-icon">{{ hobby.name }}</div>
+                            <div class="b-rating__title">Рейтинг</div>
+                            <div class="b-rating__logo"></div>
+                        </div>
+                        <div class="b-rating__value">{{ hotel_hobby.rating|format_decimal:1 }}</div>
+                    </div>
+                    <ul class="b-reviews">
+                        {% for review in reviews|slice:":2" %}
+                        <li class="b-review">
+                            <p class="b-review__text">{{ review.text|truncatechars:100|linebreaks }}</p>
+                            <p class="b-review__name">{{ review.reviewer_name }}, {{ review.reviewer_country}}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="#" class="b-link_prices">Посмотреть цены</a>
+                </div>
+            </div>
+        </div>
+        <div class="b-body__wrapper b-hotel__about-wrapper">
+            <div class="b-body__content b-hotel__about">
+                <h2 class="b-header-2">Об отеле</h2>
+                <div class="b-hotel__about-text">
+                    {{ hotel.description|linebreaks }}
+                    <a href="#">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-body__content b-hotel__specials">
+                <h2 class="b-header-2">Специальные услуги</h2>
+                <ul class="b-specials">
+                    {% for special in specials %}
+                    <li class="b-special" style="background-image: url('{% get_media_prefix %}{{ special.image }}');">
+                        <span class="b-special__caption">{{ special.name }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-hotel__separator_logo"></div>
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-body__content">
+                <h2 class="b-header-2">Особенности отеля</h2>
+                <ul class="b-features">
+                    {% for hotel_feature in hotel.hotel_features.all %}
+                    <li class="b-feature">
+                        <div class="b-feature__title">
+                            <img src="{% get_media_prefix %}{{ hotel_feature.feature.icon }}" alt="" class="b-feature__icon">
+                            <h3 class="b-feature__header">{{ hotel_feature.feature.name }}</h3>
+                        </div>
+                        <div class="b-feature__text">{{ hotel_feature.description|linebreaks }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-body__content">
+                <h2 class="b-header-2">Прочие удобства в отеле</h2>
+                <ul class="b-facilities">
+                    {% for facility in hotel.facilities.all %}
+                    <li class="b-facility"><img src="{% get_media_prefix %}{{ facility.icon }}" alt="" class="b-facility__icon" />{{ facility.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="b-body__wrapper b-hotel__map">
+
+        </div>
+        <div class="b-body__wrapper">
+            <div class="b-body__content b-hotel__comments">
+                <div class="b-hotel__reviews">
+                    <h2 class="b-header-2">Отзывы <span class="b-header-2__logo"></span>: <span
+                            class="b-header-2__accent">“Глазами {{ hobby.hobbyist_genitive|lower }}”</span></h2>
+                    <div class="b-img-reviews">
+                        <div class="b-img-reviews__image" style="background-image: url('{% static 'htapp/img/main/review.jpg' %}');">
+                            <ul class="b-img-reviews__paginator">
+                                {% for review in reviews %}
+                                <li class="b-img-reviews__item {% if forloop.first %}b-img-reviews__item_active{% endif %}"></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="b-img-reviews__reviews">
+                            {% for review in reviews %}
+                            <div class="b-img-reviews__review {% if forloop.first %}b-img-reviews__review_active{% endif %}">
+                                <div class="b-img-reviews__text">{{ review.text|linebreaks }}</div>
+                                <div class="b-img-reviews__name">{{ review.reviewer_name }}, {{ review.reviewer_country}}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <a href="#" class="b-link_question b-desktop">Задать вопрос специалисту</a>
+                </div>
+                <div class="b-hotel__our-reviews b-our-review">
+                    <h2 class="b-header-2">Что делает этот отель особенным:</h2>
+                    <div class="b-our-review__icon"></div>
+                    <div class="b-our-review__text">{{ hotel_hobby.review|linebreaks }}</div>
+                    <div class="b-our-review__sign">
+                        <p><strong>{{ hotel_hobby.reviewer.first_name }} {{ hotel_hobby.reviewer.last_name }}</strong></p>
+                        <p>{{ hotel_hobby.reviewer.info.post }}</p>
+                    </div>
+                    <div class="b-our-review__logo"></div>
+                </div>
+                <a href="#" class="b-link_question b-mobile">Задать вопрос специалисту</a>
+            </div>
+        </div>
+{% endblock %}

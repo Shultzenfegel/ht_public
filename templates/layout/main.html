@@ -1,0 +1,179 @@
+{% load static %}
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hobby Travel{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'htapp/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'htapp/plugins/materialize/css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'htapp/plugins/nouislider/nouislider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'htapp/css/style.css' %}">
+</head>
+
+<body>
+    <nav class="b-body__wrapper b-nav">
+        <div class="b-body__content b-nav__content">
+            <a href="/" class="b-nav__logo"></a>
+            <div class="b-nav__menu">
+                <button type="button" class="b-nav__close-button"></button>
+                <div class="b-nav__links">
+                    <a href="/about/" class="b-nav__link">О нас</a>
+                    <a href="/for-partners/" class="b-nav__link">Партнерам</a>
+                    <a href="/blog/" class="b-nav__link">Блог</a>
+                </div>
+                <div class="b-nav__select">
+                    <div class="b-nav__sel-button b-nav__sel-button_curr">{{ user.info.currency.iso_code }}</div>
+                    <div class="b-nav__sel-options">
+                        {% for currency in currencies %}
+                        <div class="b-nav__sel-option"><span class="b-text_accent">{{ currency.iso_code }}</span> {{ currency.name }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="b-nav__select">
+                    <div class="b-nav__sel-button b-nav__sel-button_lang">{{ user.info.language.iso_code }}</div>
+                    <div class="b-nav__sel-options">
+                        {% for language in languages %}
+                        <div class="b-nav__sel-option"><span class="b-text_accent">{{ language.iso_code }}</span> {{ language.name }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="b-nav__buttons">
+                    {% if user.is_authenticated %}
+                    <button type="button" class="b-nav__button b-nav__button_account"></button>
+                    <button type="button" class="b-nav__button b-nav__button_signout">Выйти</button>
+                    {% else %}
+                    <button type="button" class="b-nav__button b-nav__button_signin">Войти</button>
+                    <button type="button" class="b-nav__button b-nav__button_signup">Регистрация</button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="b-nav__icons">
+                {% if user.is_authenticated %}
+                <button type="button" class="b-nav__icon b-nav__icon_signout"></button>
+                {% else %}
+                <button type="button" class="b-nav__icon b-nav__icon_signin"></button>
+                {% endif %}
+                <button type="button" class="b-nav__icon b-nav__icon_burger"></button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="b-body__wrapper b-footer">
+        <div class="b-body__content  b-footer__content">
+            <div class="b-footer__top">
+                <div class="b-footer__logos">
+                    <a href="/" class="b-footer__logo"></a>
+                    <div class="b-footer__socials">
+                        <a href="https://instagram.com/" class="b-footer__soc b-footer__soc_ig"></a>
+                        <a href="https://vk.com/" class="b-footer__soc b-footer__soc_vk"></a>
+                        <a href="https://www.facebook.com/" class="b-footer__soc b-footer__soc_fb"></a>
+                    </div>
+                </div>
+                <div class="b-footer__contacts">
+                    <h4 class="b-footer__title">Контакты</h4>
+                    <a href="" class="b-footer__contact">+7 999 999 99 99</a>
+                    <a href="" class="b-footer__contact">info@hobby.travel</a>
+                </div>
+                <div class="b-footer__menu">
+                    <h4 class="b-footer__title">Меню</h4>
+                    <a href="" class="b-footer__menu-item">Новости</a>
+                    <a href="" class="b-footer__menu-item">Отели</a>
+                    <a href="" class="b-footer__menu-item">Как это работает</a>
+                </div>
+                <div class="b-footer__menu">
+                    <h4 class="b-footer__title">&nbsp;</h4>
+                    <a href="" class="b-footer__menu-item">О компании</a>
+                    <a href="" class="b-footer__menu-item">Контакты</a>
+                    <a href="" class="b-footer__menu-item">Для владельцев</a>
+                </div>
+            </div>
+            <div class="b-footer__bottom">
+                <p class="b-footer__copy">© 2021 HobbyTravel Все права защищены</p>
+                <a href="#" class="b-footer__conf">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+    <div class="b-dialogs">
+        <div class="b-dialog b-dialog_signin">
+            <div class="b-dialog__content">
+                <h2 class="b-dialog__title">Войти в аккаунт</h2>
+                <form id="signInForm" method="post" action="/user/login" class="b-form">
+                    <div class="b-form__error"></div>
+                    {% csrf_token %}
+                    <div class="b-field b-field_email">
+                        {{ login_form.username }}
+                        <label for="{{ login_form.username.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <div class="b-field b-field_password">
+                        {{ login_form.password }}
+                        <label for="{{ login_form.password.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <button type="submit" class="b-button">Войти</button>
+                    <div class="b-checkbox b-checkbox_center">
+                        <label><input type="checkbox" class="filled-in" name=""><span>Запомнить меня</span></label>
+                    </div>
+                </form>
+                <a href="#" class="b-dialog__link b-dialog__link_signup">Регистрация</a>
+                <a href="#" class="b-dialog__link b-dialog__link_restore">Восстановить пароль</a>
+            </div>
+        </div>
+        <div class="b-dialog b-dialog_signup">
+            <div class="b-dialog__content">
+                <h2 class="b-dialog__title">Завести аккаунт</h2>
+                <form id="signUpForm" method="post" action="/user/registration" class="b-form">
+                    <div class="b-form__error"></div>
+                    {% csrf_token %}
+                    <div class="b-field b-field_email">
+                        {{ registration_form.email }}
+                        <label for="{{ registration_form.email.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <div class="b-field b-field_name">
+                        {{ registration_form.firstname }}
+                        <label for="{{ registration_form.firstname.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <div class="b-field b-field_name">
+                        {{ registration_form.lastname }}
+                        <label for="{{ registration_form.lastname.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <div class="b-field b-field_password">
+                        {{ registration_form.password }}
+                        <label for="{{ registration_form.password.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <div class="b-field b-field_password">
+                        {{ registration_form.password_conf }}
+                        <label for="{{ registration_form.password_conf.id_for_label }}" class="b-field__label"></label>
+                    </div>
+                    <button type="submit" class="b-button">Регистрация</button>
+                </form>
+                <a href="#" class="b-dialog__link b-dialog__link_signin">Вход</a>
+            </div>
+        </div>
+        <div class="b-dialog b-dialog_restore">
+            <div class="b-dialog__content">
+                <h2 class="b-dialog__title">Восстановить пароль</h2>
+                <p class="b-dialog__subtitle">Введите ваш email и мы отправим письмо для восстановления пароля</p>
+                <form action="" class="b-form">
+                    <div class="b-field b-field_email">
+                        <input type="email" id="restoreEmail" class="b-field__input" placeholder="Email"/>
+                        <label for="restoreEmail" class="b-field__label"></label>
+                    </div>
+                    <button type="button" class="b-button">Восстановить</button>
+                </form>
+                <a href="#" class="b-dialog__link b-dialog__link_signin">Вход</a>
+            </div>
+        </div>
+        {% block dialogs %}{% endblock %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'htapp/plugins/materialize/js/materialize.min.js' %}"></script>
+    <script src="{% static 'htapp/plugins/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'htapp/js/main.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
